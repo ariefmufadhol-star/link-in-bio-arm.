@@ -17,14 +17,14 @@ st.markdown("""
     }
     
     /* Memaksa elemen tombol bawaan Streamlit agar Center & Full Width */
-    .stElementContainer, .stButton, div[data-testid="stButton"] {
+    .stElementContainer, .stButton, div[data-testid="stButton"], div.stLinkButton {
         width: 100% !important;
         display: flex !important;
         justify-content: center !important;
     }
     
     /* Desain tombol utama biar mirip Linktree */
-    div[data-testid="stButton"] button {
+    div[data-testid="stButton"] button, div.stLinkButton a {
         background-color: #1e63d3 !important;
         color: white !important;
         font-size: 18px !important;
@@ -35,10 +35,14 @@ st.markdown("""
         border: none !important;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1) !important;
         transition: all 0.3s ease !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none; /* Hilangkan garis bawah untuk link */
     }
     
     /* Efek hover tombol */
-    div[data-testid="stButton"] button:hover {
+    div[data-testid="stButton"] button:hover, div.stLinkButton a:hover {
         background-color: #154fa6 !important;
         color: white !important;
         transform: translateY(-2px) !important;
@@ -105,16 +109,7 @@ if st.session_state.buka_cv:
 
 st.write("") # Jarak antar tombol
 
-# Menu 2: Link TikTok (Sudah di-fix ke Tab Baru agar tidak error)
+# Menu 2: Link TikTok (Sudah di-fix tampilan sama dengan About Me)
 link_tiktok = "https://www.tiktok.com/@arief_mfdhl?is_from_webapp=1&sender_device=pc"
 
-st.markdown(
-    f'<a href="{link_tiktok}" target="_blank" style="text-decoration: none; width: 100%; display: flex; justify-content: center;">'
-    f'<button style="background-color: #1e63d3; color: white; font-size: 18px; font-weight: bold; '
-    f'height: 55px; width: 100%; border-radius: 12px; border: none; '
-    f'box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); cursor: pointer; font-family: sans-serif;">'
-    f'🎵 TikTok'
-    f'</button>'
-    f'</a>',
-    unsafe_allow_html=True
-)
+st.link_button("🎵 TikTok", link_tiktok, type="primary") # Gunakan st.link_button asli
