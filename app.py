@@ -64,7 +64,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- 1. PROFIL & DESKRIPSI ---
-nama_file_foto = "CV1.jpg" 
+nama_file_foto = "profile.jpeg" 
 
 if os.path.exists(nama_file_foto):
     with open(nama_file_foto, "rb") as f:
@@ -101,7 +101,7 @@ if st.button("🧑‍💻 About Me"):
 # Tempat munculin Gambar CV lu kalau tombol "About Me" diklik
 if st.session_state.buka_cv:
     st.write("")
-    nama_file_cv = "profile.jpeg"  
+    nama_file_cv = "CV1.jpg"  
     if os.path.exists(nama_file_cv):
         st.image(nama_file_cv, use_container_width=True)
     else:
