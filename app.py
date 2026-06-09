@@ -64,7 +64,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- 1. PROFIL & DESKRIPSI ---
-nama_file_foto = "Profile1.jpeg" 
+nama_file_foto = "CV1.jpg" 
 
 if os.path.exists(nama_file_foto):
     with open(nama_file_foto, "rb") as f:
