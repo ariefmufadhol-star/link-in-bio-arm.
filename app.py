@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import base64
 
 # Setup dasar halaman supaya responsif di HP
 st.set_page_config(page_title="ARM Technology | Link in Bio", page_icon="🔗", layout="centered")
@@ -62,7 +63,6 @@ st.markdown("""
 nama_file_foto = "Profile1.jpeg" 
 
 if os.path.exists(nama_file_foto):
-    import base64
     with open(nama_file_foto, "rb") as f:
         data = f.read()
     encoded = base64.b64encode(data).decode()
@@ -105,7 +105,16 @@ if st.session_state.buka_cv:
 
 st.write("") # Jarak antar tombol
 
-# Menu 2: Link TikTok
+# Menu 2: Link TikTok (Sudah di-fix ke Tab Baru agar tidak error)
 link_tiktok = "https://www.tiktok.com/@arief_mfdhl?is_from_webapp=1&sender_device=pc"
-if st.button("🎵 TikTok"):
-    st.markdown(f'<meta http-equiv="refresh" content="0;URL=\'{link_tiktok}\'" />', unsafe_allow_html=True)
+
+st.markdown(
+    f'<a href="{link_tiktok}" target="_blank" style="text-decoration: none; width: 100%; display: flex; justify-content: center;">'
+    f'<button style="background-color: #1e63d3; color: white; font-size: 18px; font-weight: bold; '
+    f'height: 55px; width: 100%; border-radius: 12px; border: none; '
+    f'box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); cursor: pointer; font-family: sans-serif;">'
+    f'🎵 TikTok'
+    f'</button>'
+    f'</a>',
+    unsafe_allow_html=True
+)
